@@ -6,9 +6,12 @@ pipeline {
   stages {
     stage ('Build') {
       steps {
-        sh "./mvnw clean verify"
+        sh './mvnw clean verify
+        -Dpact.provider.version=${GIT_COMMIT}
+        -Dpact.verifier.publishResults=true'
       }
     }
+
     stage('Deploy') {
       when {
         branch 'master'
