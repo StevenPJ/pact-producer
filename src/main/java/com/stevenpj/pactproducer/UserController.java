@@ -1,8 +1,6 @@
 package com.stevenpj.pactproducer;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class UserController {
@@ -13,7 +11,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/users/{userId}")
+    @RequestMapping(value = "/users/{userId}", method = RequestMethod.GET, produces = "application/json; charset=UTF-8")
     public User getUser(@PathVariable String userId) {
         return userService.findUser(userId);
     }
