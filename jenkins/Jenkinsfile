@@ -6,9 +6,7 @@ pipeline {
   stages {
     stage ('Build') {
       steps {
-        dir('user-service') {
-          sh "../mvnw clean verify"
-        }
+        sh "./mvnw clean verify"
       }
     }
     stage('Deploy') {
