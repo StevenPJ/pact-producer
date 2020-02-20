@@ -13,6 +13,7 @@ public class User {
 
     private String id;
     private String name;
+    private String colour;
     private String legacyId;
     private UserRole role;
     private Date lastLogin;

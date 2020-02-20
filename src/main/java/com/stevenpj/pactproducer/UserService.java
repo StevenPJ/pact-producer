@@ -12,6 +12,7 @@ public class UserService {
         return User.builder()
             .id(userId)
             .name("something")
+            .colour("blue")
             .legacyId(UUID.randomUUID().toString())
             .role(UserRole.ADMIN)
             .lastLogin(new Date())
