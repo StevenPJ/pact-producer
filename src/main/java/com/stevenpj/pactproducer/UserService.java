@@ -12,7 +12,6 @@ public class UserService {
         return User.builder()
             .id(userId)
             .legacyId(UUID.randomUUID().toString())
-            .name("Beth")
             .role(UserRole.ADMIN)
             .lastLogin(new Date())
             .friend(Friend.builder().id("2").name("Ronald Smith").build())
