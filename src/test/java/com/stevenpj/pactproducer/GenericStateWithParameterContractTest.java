@@ -37,6 +37,7 @@ public class GenericStateWithParameterContractTest {
         if (userExists) {
             when(userService.findUser(any())).thenReturn(User.builder()
                 .id("1")
+                .name("sdfsdf")
                 .legacyId(UUID.randomUUID().toString())
                 .role(UserRole.ADMIN)
                 .lastLogin(new Date())
@@ -52,6 +53,7 @@ public class GenericStateWithParameterContractTest {
     public void user1Exists() {
         when(userService.findUser(any())).thenReturn(User.builder()
             .id("1")
+            .name("sdfsdf")
             .legacyId(UUID.randomUUID().toString())
             .role(UserRole.ADMIN)
             .lastLogin(new Date())
