@@ -3,6 +3,11 @@ pipeline {
 
   agent any
 
+
+  parameters {
+    string(name: 'pactConsumerTags', defaultValue: 'master', description: 'Tags to verify')
+  }
+
   stages {
     stage ('Hello') {
       steps {
