@@ -6,7 +6,18 @@ pipeline {
   stages {
     stage ('Build') {
       steps {
-        sh './mvnw clean verify -Dpact.provider.version=${GIT_COMMIT} -Dpact.verifier.publishResults=true'
+        sh './mvnw clean verify'
+      }
+    }
+
+
+    stage('Check Pact Verifications') {
+      steps {
+        sh 'curl -LO https://github.com/pact-foundation/pact-ruby-standalone/releases/download/v1.61.0/pact-1.61.0-linux-x86_64.tar.gz'
+        sh 'tar xzf pact-1.61.0-linux-x86_64.tar.gz'
+        dir('pact/bin') {
+          sh "./pact-broker can-i-deploy -a pact-producer -b http://pact_broker -e ${GIT_COMMIT} -to prod"
+        }
       }
     }
 

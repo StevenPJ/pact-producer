@@ -10,7 +10,7 @@ pipeline {
   stages {
     stage ('Run Contract Tests') {
       steps {
-          sh "./mvnw clean test -Pcontract-tests -Dpact.provider.version=${GIT_COMMIT} -Dpact.verifier.publishResults=true -Dpactbroker.tags=${params.pactConsumerTags}"
+          sh "./mvnw clean test -Pcontract-tests -Dpact.provider.version=${GIT_COMMIT} -Dpact.verifier.publishResults=true -Dpactbroker.tags=prod,${params.pactConsumerTags}"
       }
     }
   }
